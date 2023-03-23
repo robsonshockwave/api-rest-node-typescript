@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { ICidade } from "../../dtos/cidades/Create";
+import { ICidade } from "../../dtos/cidades";
+import { bodyValidation } from "../../validators/cidades/Create";
 
 export const create = (req: Request<{}, {}, ICidade>, res: Response) => {
   const data = req.body;
