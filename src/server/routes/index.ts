@@ -21,6 +21,10 @@ router.post("/test-post/:id", (req, res) => {
   return res.json({ body, params, query });
 });
 
-router.post("/cidades", CidadesController.create);
+router.post(
+  "/cidades",
+  CidadesController.createBodyValidator,
+  CidadesController.create
+);
 
 export { router };
