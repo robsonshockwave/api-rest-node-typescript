@@ -23,7 +23,7 @@ router.post("/test-post/:id", (req, res) => {
 
 router.post(
   "/cidades",
-  CidadesController.createBodyValidator,
+  CidadesController.createValidation,
   CidadesController.create
 );
 
