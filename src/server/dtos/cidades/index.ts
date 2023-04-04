@@ -1,8 +1,17 @@
 export interface ICidade {
   nome: string;
-  estado: string;
 }
 
-export interface IFilter {
+export interface IQueryProps {
+  page?: number;
+  limit?: number;
   filter?: string;
+}
+
+export interface IParamsProps {
+  id?: number;
+}
+
+export interface IBodyParams {
+  nome: string;
 }

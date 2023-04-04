@@ -15,12 +15,12 @@ type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
 
 export const validation: TValidation = (getAllSchemas) => {
-  const schemas = getAllSchemas((schema) => schema);
-  const schemasArr = Object.entries(schemas);
-
-  const errorsResult: Record<string, Record<string, string>> = {};
-
   return async (req, res, next) => {
+    const schemas = getAllSchemas((schema) => schema);
+    const schemasArr = Object.entries(schemas);
+
+    const errorsResult: Record<string, Record<string, string>> = {};
+
     schemasArr.forEach(([key, schema]) => {
       try {
         schema.validateSync(req[key as TProperty], {
